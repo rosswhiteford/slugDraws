@@ -1,0 +1,812 @@
+html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,html [type=button],[type=reset],[type=submit]{-webkit-appearance:button}button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}
+
+.clearfix:after {visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+/*Setup HTML-level stylings:*/
+html {
+	/*Default font size set in rem to 10px*/
+	font-size: 62.5%
+}
+
+body {
+	/*This site is using the following font styles: 'Nunito' (for headings), and PT Sans as body text:*/
+	font-family: 'PT Sans', sans-serif;
+	/*default font size is a readable 12px & weight of 400. Font colour is dark grey.*/
+	font-size: 1.5rem;
+	font-weight:400;
+	color: #323232;
+}
+
+/*Container for all elements in Header and Body*/
+.wrapper {
+	/*set the wrapper width to a maximum of 1280px and center everything on the page with gutter space*/
+	// border: 1px solid dodgerblue;
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+nav {
+	/*Remove the default stylings from the list:*/
+	ul li {
+		float: left;
+		list-style-type: none;
+		margin: 0;
+		padding-top: 10px;
+		padding-right: 20px;
+		text-transform: uppercase;
+		&:last-child {
+			padding-right: 50px;
+		}
+		a {
+			text-decoration: none;
+  		color: black; 
+  	}
+  }
+}
+
+nav {
+	/*temporary border for styling:*/
+  /*border: solid 1px tomato;*/
+  /*Style the nav menu:*/
+  display: flex;
+ 	flex-direction: row;
+ 	justify-content: flex-end;
+ 	background-color: #fff;
+ 	/*Set the nav to scroll with the page:*/
+ 	position: fixed;
+	/*Found that using 'position:absolute' later in the gallery caused the nav to "hide" behind largeImage when scrolling. Setting Z-index to a higher-than-default value fixed this*/ 
+ 	z-index: 2;
+ 	right: 0;
+ 	top: 0;
+ 	width: 100%;
+}
+
+header.index {
+	/*temporary border:*/
+	/*border: 1px solid tomato;*/
+	background-image:url(../assets/winterHouseOnHill.jpg);
+	background-size: cover;
+	height: 100vh;
+	/*Use flexbox to position the header content within the wrapper:*/
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+/*Contains the H1, H2, text and button/link to other pages*/
+.pageTop {
+	/*temporary border:*/
+	/*border: 1px solid tomato;*/
+	width: 40%;
+		/*Styling the H1 text:*/
+		h1 {
+			font-family: 'Nunito', sans-serif;
+			font-weight:600;
+			font-size: 6.0rem;
+			letter-spacing: 5px;
+			margin: 2.5px;
+		}
+		/*Styling the H2 subhead*/
+		h2 {
+			font-family: 'Nunito', sans-serif;
+			font-size: 3.0rem;
+			color: #987316;
+			text-transform: uppercase;
+			letter-spacing: 10px;
+			margin: 2.5px;
+			text-align: right;
+		}
+		/*Styling the text. Default font-family; adjusted size, line-height & weight:*/
+		p {
+			font-weight:600;
+			text-align: justify;
+			font-size: 1.4rem;
+			line-height: 2.0rem;
+		}
+		/*Styling the button:*/
+		.headerButtons button {
+			display: inline-block;
+			border: none;
+			padding: 10px 50px;
+			margin: 0;
+			text-decoration: none;
+			background-color: #323232;
+			color: #fff;
+			font-size: 1.5rem;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+		}
+		/*Styling the chevron*/
+		i {
+			font-size: 4rem;
+			/*Colour the chevron and give it some opacity so that it's a bit more unobtrusive*/
+			color:rgba(68,76,86,0.3);
+		}
+}
+/*Styling the button and text (which link to other pages):*/
+.headerButtons {
+	// border: 1px solid tomato;
+	width: 90%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+		/*Styling the text link adjacent to the button:*/
+		a { 
+		text-decoration: none;
+		}
+		p {
+			font-size: 1.5rem;
+			color: #323232;
+			text-transform: uppercase;
+			align-self: flex-end;
+		}
+}
+
+/*Positioning the chevron:*/
+.headerChevron {
+	// border: 1px solid tomato;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+}
+/*End styling of pageTop*/
+
+/*Styling the H2 subheading:*/
+.subhead h2 {
+	font-family: 'Nunito', sans-serif;
+	font-size: 3.0rem;
+	text-transform: uppercase;
+	.h2Styling {
+		font-size: 2.0rem;
+		color: #987316;
+	}
+}
+
+/*Container for Subhead & Gallery sections*/
+.pageBottom {
+	// border: 1px solid goldenrod;
+	width: 100%;
+	margin: 40px 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+/*Position the H2 subhead elements*/
+.subhead {
+	// border: 1px solid tomato;
+	/*resize the div so we can use flexbox to wrap the words onto separate lines*/
+	width: 10%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+/*Container for recent images:*/
+/*size-up the images so that they'll fit on the screen neatly*/
+.recentImages {
+	// border: 1px solid tomato;
+	width: 90%;
+	display: flex;
+	flex-direction: row;	
+	justify-content: space-around;
+	text-align: center;
+	margin-bottom: 100px;
+}
+
+/*Size the recent images to fit the div and position the image, title & button*/
+.image {
+	width: 264px;
+	height: 264px;
+	display: flex;
+	flex-direction: column;
+		img { 
+			width: 100%;
+			height: 100%;
+			/*Add a transition effect for the box-shadow:*/
+			transition: box-shadow 500ms;
+			/*On hover, add a shadow effect to the image:*/
+			&:hover, :focus {
+ 				box-shadow: 5px 10px rgba(141,154,166, 0.3)
+			}
+		}
+}
+
+/*Styling the recent image buttons*/
+.image button {
+	display: inline-block;
+	padding: 5px 50px 5px 50px;
+	margin: 0;
+	text-decoration: none;
+	background-color: #323232;
+	color: #fff;
+	font-size: 1.5rem;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+/*Begin Styling the footer*/
+footer {
+	// border: 1px solid tomato;
+	background-color: #434C56;
+	padding: 20px 0;
+	a, p {
+		font-size: 1rem;
+	}
+
+	p.title {
+		font-family: 'Nunito', sans-serif;
+		font-size: 1.0rem;
+		font-weight: 600px;
+		color: #987316;
+		text-transform: uppercase;
+		margin-bottom: 5px;
+	}
+
+	.socialMedia i {
+		// border: 1px solid tomato;
+		color: white;
+		padding-right: 10px;
+	}
+	.socialMedia p {
+		margin-bottom: 5px
+	}
+	.webstore a, p {
+		display: block;
+		color: white;
+		text-decoration: none;
+		margin-top: 0px;
+	}
+	.makersMark span {
+		padding-left: 3px;
+	}
+	.webDesign {
+		// border: 1px solid tomato;
+		margin-top: 5px;
+			a {
+				color: white;
+				text-decoration: none;
+			}
+	}
+	.canadaMark {
+		margin-top: 3px;
+	}
+}
+
+/*Set a width on the footer divs*/
+.footerColumn {
+	// border: 1px solid goldenrod;
+	width: 15%;
+}
+
+/*Apply flexbox to the footer items*/
+.flexThese {
+	// border: 1px solid goldenrod;
+	width: 80%;
+	margin-left: 10%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+/*GALLERY PAGE SPECIFIC STYLES*/
+header.galleryHead {
+	// border: 1px solid dodgerblue;
+	/*Set a distint background colour for the Header section*/
+	background-color: #EBEEEE;
+}
+
+.artistBio {
+	/*Temporary border for styling:*/
+	// border: 1px solid dodgerblue;
+	margin-top: 25px;
+	padding: 20px 0;
+	/*Width = 100%*/
+	width: 100%;
+	/*Apply flexbox:*/
+	display: flex;
+	flex-direction: row;
+	/*Styling the H2 subhead*/
+	h2 {
+		font-family: 'Nunito', sans-serif;
+		font-size: 2.0rem;
+		color: #987316;
+		text-transform: uppercase;
+		letter-spacing: 10px;
+		margin: 2.5px;
+		text-align: left;
+		span {
+			color: black;
+			letter-spacing: 5px;
+			font-size: 3.0rem;
+		}
+	}	
+	
+	p {
+		text-align: justify;
+	}
+	/*Styling the button:*/
+	button {
+		display: inline-block;
+		border: none;
+		padding: 10px 50px;
+		margin: 10px 0;
+		text-decoration: none;
+		background-color: #323232;
+		color: #fff;
+		font-size: 1.5rem;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+	}
+	img {
+	display: block;
+	width: 320px;
+	height: 300px;
+	}
+}
+
+.leftHalf {
+	// border: 1px solid goldenrod;
+	/*Left Half of page is 50% of parent (artistBio)*/
+	width: 50%;
+	/*Flexbox:*/
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.bio {
+	// border: 1px solid tomato;
+	/*Width is 50% of its parent; this helps contain the H2 & text neatly*/
+	width: 50%;
+}
+
+.rightHalf {
+	// border: 1px solid forestgreen;
+	/*Right Half of page is 50% of parent (artistBio)*/
+	width: 50%;
+	/*Flexbox:*/
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.artistImage {
+	/*Temp. border:*/
+	// border: 1px solid tomato;
+	/*Width is 50% of its parent*/
+	width: 50%;
+	img {
+		width: 100%;
+	}
+}
+
+/*Empty divs to allow for positioning of the images on the bio*/
+.makeSpace {
+	// border: 1px solid black;
+	// background-color: white;
+	display: block;
+	width: 50%;
+}
+
+/*Quotation adjacent to profile photo*/
+.quotation {
+font-family: 'Playfair Display', serif;
+font-size: 2.5rem;
+/*apply some padding for breathing room*/
+padding: 25px;
+text-align: right;
+}
+
+/*Using a different font for the quotation author name*/
+.attribution {
+font-family: 'Source Sans Pro', sans-serif;
+}
+
+.secondImage {
+	/*Temp border:*/
+	// border: 1px solid tomato;
+	/*Width is 50% of its parent*/
+	width: 50%;
+	img {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+/*Styling the 'Portfolio of Work' section*/
+.gallery {
+	// border: 1px solid dodgerblue;
+	width: 100%;
+	padding-top: 40px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-bottom: 40px;
+	.smallImage {
+		width: 265px;
+		height: 280px;
+		margin: 10px;
+		/*frame the images*/
+		border: 5px solid black;
+		position: relative;
+		/*Set a transition effect for the hover: transform*/
+		transition: all 0.5s;
+	}	
+	img {
+		width: 100%;
+		height: 100%;
+	}
+	/*Set the small images to double in size on hover*/
+	.smallImage:hover {
+		transform: scale(2);
+	/*z-index set to '3' so that image overlays everything else on the page (already used '2' for the nav bar)*/
+		z-index: 3; 
+		}
+}	
+.gallery {
+	.largeImage {
+		width: 559px;
+		height: 580px;
+		margin: 10px;
+		border: 5px solid black;
+		position: relative;
+	}
+	img {
+		width: 100%;
+		height: 100%;
+	}
+}	
+
+.galleryLeft {
+	// border: 1px solid goldenrod;
+	width: 50%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	float: right;
+}
+
+/*Subheading*/
+.galleryTitle {
+	// border: 1px solid tomato;
+	width: 265px;
+	height: 280px;
+	margin: 10px;
+	h2 {
+			font-family: 'Nunito', sans-serif;
+			font-size: 2.0rem;
+			color: #987316;
+			text-transform: uppercase;
+			letter-spacing: 6px;
+			margin: 100px 0;
+			text-align: left;
+			span {
+				color: black;
+				letter-spacing: 3px;
+				font-size: 3.0rem;
+			}
+		}
+}
+
+/*Position the gallery image titles on the images. Hide them unless on 'Hover'*/
+.smallImage p {
+	position: absolute;
+	top: 0;
+	left: 97px;
+	/*Style the text so it's visible*/
+	color: white;
+	font-weight:600;
+	display: none;
+}
+
+/*Display the text when the user hovers over the image:*/
+.smallImage:hover p {
+	display: block;
+}
+
+/*Repeat the above for the large gallery image:*/
+.largeImage p {
+	position: absolute;
+	top: 0;
+	left: 180px;
+	/*Style the text so it's visible*/
+	color: white;
+	font-weight:600;
+	display: none;
+}
+/*Display the text when the user hovers over the image:*/
+.largeImage:hover p {
+	display: block;
+}
+
+/*Distinctive background colour for the 'Events' section:*/
+.wrapperEvents {
+	// border: 1px solid tomato;
+	background-color: #EBEEEE;
+}
+
+/*Styling the 'Events' section of the page*/
+.events {
+	// border: 1px solid dodgerblue;
+	padding: 25px 0;
+	// margin-bottom: 40px;
+	margin-left: 30px;
+	display: flex;
+	flex-direction: row;
+}
+/*Left side of events section*/
+.eventsLeft {
+	// border: 1px solid goldenrod;
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	/*Event image*/
+	.mainEventImage {
+		// border: 1px solid tomato;
+		width: 569px;
+		height: 450px;
+		position: relative;
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.mainEventText {
+		span {
+			font-weight:600;
+		}
+	}
+	/*Event description*/
+	.mainEventText {
+		text-align: justify;
+		padding: 0 30px;
+	}
+	/*Calendar icon, bottom-left of image*/
+	.calendar {
+		// border: 1px solid tomato;
+		width: 40px;
+		padding: 1.5px;
+		margin: 10px;
+		text-align: center;
+		background-color: #FFFFF0;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		/*Text styling for calendar div*/
+		p {
+			font-family: 'Nunito', sans-serif;
+			font-size: 1.0rem;
+			font-weight:600;
+			color: #987316;
+			text-transform: uppercase;
+			span {
+				color: black;
+				font-size: 1.5rem;
+			}	
+		}
+		/*Remove link styling*/
+		a {
+			text-decoration: none;
+		}
+	}
+}
+/*Right side of events section*/
+.eventsRight {
+	// border: 1px solid forestgreen;
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	.upcomingEvents {
+		// border: 1px solid goldenrod;
+		width: 100%;
+		padding-left: 25px;
+		display: flex;
+		flex-direction: column;
+		/*Center the event listing and align to the left side of the div. Add some left margin to indent a bit*/
+		justify-content: center;
+		align-items: flex-start;
+		/*Styling the subhead*/
+		h2 {
+			// border: 1px solid tomato;
+			width: 25%;
+			display: inline-block;
+			margin-top: 0;
+			margin-bottom: 20px;
+			font-family: 'Nunito', sans-serif;
+			font-size: 2.0rem;
+			color: #987316;
+			text-transform: uppercase;
+			letter-spacing: 6px;
+			text-align: left;
+			align-self: flex-start;
+			span {
+				color: black;
+				letter-spacing: 3px;
+				font-size: 3.0rem;
+			}
+		}
+	}
+	/*Future events*/
+	.newEvents {
+		// border: 1px solid tomato;
+		width: 50%;
+		margin-left: 30px;
+		margin-bottom: 40px;
+	}
+}
+
+/*RESPONSIVE DESIGN BREAKPOINTS:*/
+/*Tablet & small-screen*/
+@media (max-width: 940px) {
+	nav {
+		flex-direction: column;
+	}
+	header {
+		height: auto;
+	}
+	.headerButtons {
+		flex-direction: column;
+		margin: 40px auto;
+	}
+	.pageTop {
+		margin: 0 auto;
+	}
+	.pageBottom {
+		flex-direction: column;
+	}
+	.recentImages {
+		flex-direction: row;
+		flex-wrap: wrap;
+		.image1 {
+			width: 300px;
+			height: 320px;
+		}
+		.image2 {
+			width: 300px;
+			height: 320px;
+		}
+		.image3 {
+			margin-top: 120px;
+			width: 300px;
+			height: 320px
+		}
+	}
+
+	/*Gallery Page*/
+	.artistBio {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		.quotation {
+			font-size: 1.4rem;
+			align-self: center;		
+		}
+		.artistImage {
+			display: none;
+		}
+		.makespace, .blank {
+			display: none;
+		}
+		.rightHalf {
+			margin-top: 20px;
+		}
+	}
+	.galleryTitle {
+		height: 200px;
+		align-self: flex-start;
+	}
+	.events {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		#events {
+			padding-top: 20px;
+		}
+	}
+}
+
+/*Smartphone*/
+@media (max-width: 500px) {
+	header.index {
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	.pageTop h2 {
+		margin-bottom: 80px;
+		}
+	nav li {
+		align-self: flex-start;
+	}
+	h1 {
+		padding-top: 50px;
+	}
+	.recentImages {
+		.image1 {
+			padding-bottom: 80px;
+		}
+		.image2 {
+			margin-top: 40px;
+		}
+	}
+	/*Footer*/
+	.canadaMark {
+		padding-right: 5px;
+	}
+
+	/*Gallery Page*/
+	.artistBio {
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		.quotation, .makeSpace {
+			align-self: flex-start;
+			width: 100%;
+		}
+		.secondImage {
+			margin: 0 auto;
+		}
+		.bio {
+			width: 100%;
+			padding-left: 10px;
+			h2 {
+				padding-top: 50px;
+			}
+		}
+		.bio button {
+			padding: 5px 10px;
+		}
+	}
+	/*Remove the large image on smartphones*/ 
+	.largeImage { 
+		display: none;
+	}
+	.events {
+		.mainEventImage {
+			width: 100%;
+			height: 100%;
+		}
+		.mainEventText {
+			padding: 0;
+		}
+		.newEvents {
+			width: 100%;
+		}
+	}
+}
+
+/*Height specific media queries for smartphones in landscape mode*/
+@media (max-height: 500px) {
+	h1 {
+		padding-top: 100px;
+	}
+	.bio {
+		padding-top: 20px;
+	}
+	.pageTop h2 {
+		text-align: left;
+		}
+	header {
+		flex-direction: row;
+	}	
+	.pageTop {
+		width: 80%;
+	}
+	/*Gallery Page*/
+	.galleryTitle h2 {
+		margin-top: 40px;
+	}
+}
+
+
